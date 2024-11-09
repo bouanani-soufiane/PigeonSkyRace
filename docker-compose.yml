@@ -16,10 +16,6 @@ services:
       db:
         condition: service_healthy
     restart: always
-    develop:
-      watch:
-        - action: rebuild
-          path: .
 
   db:
     container_name: mongodb

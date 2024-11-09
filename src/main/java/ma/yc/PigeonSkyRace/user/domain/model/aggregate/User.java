@@ -4,9 +4,9 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
-import ma.yc.PigeonSkyRace.piegon.domain.entity.Loft;
+import ma.yc.PigeonSkyRace.piegon.domain.model.entity.Loft;
 import ma.yc.PigeonSkyRace.user.domain.enums.Role;
-import ma.yc.PigeonSkyRace.user.domain.model.valueObject.UserId;
+import ma.yc.PigeonSkyRace.user.domain.model.valueobject.UserId;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -43,12 +43,12 @@ public class User {
     private Role role;
 
     @DBRef
-    private List<Loft> lofts  = new ArrayList<>();
+    private List<Loft> lofts = new ArrayList<>();
 
     @CreatedDate
     private LocalDateTime createdDate;
 
-    public User() {
+    public User () {
         this.id = new UserId();
     }
 }

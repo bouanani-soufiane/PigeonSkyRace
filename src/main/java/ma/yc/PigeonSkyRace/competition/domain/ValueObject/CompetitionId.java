@@ -1,10 +1,21 @@
 package ma.yc.PigeonSkyRace.competition.domain.ValueObject;
 
 
-import jakarta.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonValue;
+import org.bson.types.ObjectId;
 
-import java.util.UUID;
 
-public record CompetitionId(@NotNull UUID competitionId) {
+public record CompetitionId(ObjectId value) {
+    public CompetitionId() {
+        this(new ObjectId());
+    }
 
+    @JsonValue
+    public String toHexString() {
+        return value.toHexString();
+    }
+
+    public static CompetitionId fromString(String id) {
+        return new CompetitionId(new ObjectId(id));
+    }
 }

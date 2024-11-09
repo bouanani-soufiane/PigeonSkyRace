@@ -1,14 +1,14 @@
 package ma.yc.PigeonSkyRace.competition.application.dto.response;
 
 
+import ma.yc.PigeonSkyRace.competition.domain.ValueObject.SeasonId;
 import ma.yc.PigeonSkyRace.competition.domain.entity.Competition;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 
 public record SeasonResponseDto(
-        UUID id,
+        SeasonId id,
         String name,
         String description,
         Boolean isActive,

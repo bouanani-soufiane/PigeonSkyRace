@@ -12,7 +12,7 @@ import ma.yc.PigeonSkyRace.user.domain.exception.InvalidCredentialsException;
 import ma.yc.PigeonSkyRace.user.domain.exception.UserAlreadyExistsException;
 import ma.yc.PigeonSkyRace.user.domain.exception.UserRegistrationException;
 import ma.yc.PigeonSkyRace.user.domain.model.aggregate.User;
-import ma.yc.PigeonSkyRace.user.domain.model.valueObject.UserId;
+import ma.yc.PigeonSkyRace.user.domain.model.valueobject.UserId;
 import ma.yc.PigeonSkyRace.user.domain.service.UserDomainService;
 import ma.yc.PigeonSkyRace.user.infrastructure.repository.UserRepository;
 import org.springframework.stereotype.Service;

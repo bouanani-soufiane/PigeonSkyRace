@@ -7,7 +7,7 @@ import ma.yc.PigeonSkyRace.common.infrastructure.web.ResponseApi;
 import ma.yc.PigeonSkyRace.user.application.dto.request.LoginRequestDTO;
 import ma.yc.PigeonSkyRace.user.application.dto.request.RegisterRequestDTO;
 import ma.yc.PigeonSkyRace.user.application.dto.response.AuthResponseDTO;
-import ma.yc.PigeonSkyRace.user.domain.model.valueObject.UserId;
+import ma.yc.PigeonSkyRace.user.domain.model.valueobject.UserId;
 import ma.yc.PigeonSkyRace.user.domain.service.UserDomainService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +31,7 @@ public class UserController {
         log.info("User successfully registered: {}", registerRequest.email());
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(ResponseApi.created(authResponse, "user registered successfully"));
+                .body(ResponseApi.created(authResponse, "User registered successfully"));
     }
 
     @PostMapping("/login")
@@ -40,9 +40,8 @@ public class UserController {
         log.info("User successfully logged in: {}", loginRequest.email());
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(ResponseApi.created(authResponse, "user logged in successfully"));
+                .body(ResponseApi.success(authResponse, "User logged in successfully"));
     }
-
 
     @GetMapping("/{id}")
     public ResponseEntity<ResponseApi<AuthResponseDTO>> findById ( @Valid @PathVariable String id ) {
@@ -54,12 +53,11 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity <ResponseApi<List<AuthResponseDTO>>> findAll () {
+    public ResponseEntity<ResponseApi<List<AuthResponseDTO>>> findAll () {
         List<AuthResponseDTO> authResponse = service.findAll();
         log.info("Retrieved list of all users");
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(ResponseApi.success(authResponse, "list of users "));
+                .body(ResponseApi.success(authResponse, "List of all users"));
     }
-
 }
