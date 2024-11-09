@@ -1,7 +1,7 @@
 package ma.yc.PigeonSkyRace.competition.domain.entity;
 
 
-import ma.yc.PigeonSkyRace.piegon.domain.entity.Pigeon;
+import ma.yc.PigeonSkyRace.competition.domain.ValueObject.CompetitionPigeonId;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -12,14 +12,18 @@ import java.time.LocalDateTime;
 @Document(collection = "competition_pigeons")
 public class CompetitionPigeon {
     @Id
-    private String id;
+    private CompetitionPigeonId id;
 
     @DBRef
-    private Pigeon pigeon;
+    private SeasonPigeon seasonPigeon;
 
     @DBRef
     private Competition competition;
 
     @CreatedDate
     private LocalDateTime createdDate;
+
+    public CompetitionPigeon() {
+        this.id = new CompetitionPigeonId();
+    }
 }
